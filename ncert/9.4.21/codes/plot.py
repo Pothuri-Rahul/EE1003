@@ -22,8 +22,8 @@ x_array = np.array(x)
 y_array = np.array(y)
 
 # Plot the results
-plt.plot(x_array, y_array, label="theoy", linestyle="-", color="blue")  # Line plot
-plt.scatter(x_array, y_array,s=10, color="red", label="Sim")  # Add dots for each point
+plt.plot(x_array, y_array, label="theory", linestyle="-", color="blue")  # Line plot
+plt.scatter(x_array, y_array,s=5, color="red", label="Sim")  # Add dots for each point
 
 # Add labels, title, and legend
 plt.xlabel("Time (t)")
