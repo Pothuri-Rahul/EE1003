@@ -100,6 +100,32 @@ P =1000 \times e^{0.5} \\
 P = 1000 \times 1.648 \\
 P = 1648
 \end{align}
+\textbf{Logic used for programming:-} \\
+\textbf{Method of finite differences:} This method is used to find the approximate solution of the given differential equation by using the values of the function at discrete points.  \\
+From the defination of derivative of a function 
+\begin{align}
+\frac{dy}{dx} \approx \frac{y\brak{x+h}-y\brak{x}}{h} \label{11}
+\end{align}
+by rearranging the terms, we get the function
+\begin{align}
+y\brak{x+h}=y\brak{x}+h \times \frac{dy}{dx} \\
+P\brak{t+h}=P\brak{t}+h \times \frac{P}{20}
+\end{align}
+Let \brak{t_0,P_0} be points on the curve,
+\begin{align}
+t_1=t_0+h \\
+P_1=P_0+h \times \frac{P}{20}
+\end{align}
+On  generalising the above equations,
+\begin{align}
+t_{n+1}=t_{n}+h \\
+P_{n+1}=P_{n}+h \times \frac{P}{20}
+\end{align}
+Where h is a very small division (example 0.1),We need iterate this algorithm by taking $P_0=1000$ and $t=0$, till $t_n=10$. Then we get the principle amount after 10 years.
+If we plot all the points $(t,P)$, we get the function P varying with t, i.e P vs T graph.
+
+
+
 \begin{figure}[htbp] % Positioning options: here, top, bottom, page
     \centering
     \includegraphics[width=\textwidth]{fig/plot.png} % Replace "filename" with your image file
