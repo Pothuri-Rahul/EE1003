@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.9.30)  5 JAN 2025 22:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.9.30)  6 JAN 2025 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1926,11 +1926,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--133
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-<fig/plot.png, id=74, 418.9251pt x 326.9013pt>
+<fig/plot.png, id=74, 722.7pt x 433.62pt>
 File: fig/plot.png Graphic file (type png)
 <use fig/plot.png>
 Package pdftex.def Info: fig/plot.png  used on input line 180.
-(pdftex.def)             Requested size: 364.1953pt x 284.2023pt.
+(pdftex.def)             Requested size: 364.1953pt x 218.51653pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1958,7 +1958,7 @@ nts/type1/public/txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/txfonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 156179 bytes).
+Output written on main.pdf (4 pages, 90062 bytes).
 PDF statistics:
  149 PDF objects out of 1000 (max. 8388607)
  107 compressed objects within 2 object streams

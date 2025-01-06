@@ -1,40 +1,68 @@
-import ctypes
 import numpy as np
 import matplotlib.pyplot as plt
+import ctypes
 
-# Load the shared library (code.so)
-lib = ctypes.CDLL('./code.so')
+# Load the shared object (.so) file
+# Replace './code.so' with the actual path to your .so file
+c_lib = ctypes.CDLL('./code.so')
 
-# Define the argument and return types of the function
-lib.fun.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double,
-                    ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double)]
-lib.fun.restype = None  # The function does not return anything (void)
+# Define the numerical function signature
+# void fun(double p, double t, double h, double *x, double *y)
+c_lib.fun.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, 
+                      ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double)]
 
-# Prepare ctypes arrays to store the results
-x = (ctypes.c_double * 100)()  # Array to store x (time t) values
-y = (ctypes.c_double * 100)()  # Array to store y (value p) values
+# Wrapper for the C function
+def numerical_solution_from_so():
+    # Allocate arrays for t (x) and p (y)
+    x = (ctypes.c_double * 100)()
+    y = (ctypes.c_double * 100)()
+    
+    # Initial values
+    p = ctypes.c_double(1000)
+    t = ctypes.c_double(0)
+    h = ctypes.c_double(0.1)
+    
+    # Call the function
+    c_lib.fun(p, t, h, x, y)
+    
+    # Convert the results to numpy arrays
+    return np.array(x), np.array(y)
 
-# Call the function
-lib.fun(0, 0, 0, x, y)
+# Analytical expression P = 1000 * e^(t/20)
+def analytical_solution(t):
+    return 1000 * np.exp(t / 20)
 
-# Convert ctypes arrays to NumPy arrays for easier manipulation
-x_array = np.array(x)
-y_array = np.array(y)
+# Z-transform method (discretized version)
+def z_transform_solution():
+    h = 0.1
+    p = 1000
+    t = 0
+    x = []
+    z = []
+    for _ in range(100):
+        x.append(t)
+        z.append(p)
+        p = p * (1 + h / 20)  # Z-transform equivalent
+        t = t + h
+    return np.array(x), np.array(z)
 
-# Plot the results
-plt.plot(x_array, y_array, label="theory", linestyle="-", color="blue")  # Line plot
-plt.scatter(x_array, y_array,s=5, color="red", label="Sim")  # Add dots for each point
+# Time values for analytical solution
+t_values = np.linspace(0, 10, 100)
 
-# Add labels, title, and legend
-plt.xlabel("Time (t)")
-plt.ylabel("Value (p)")
-plt.title("Plot of y vs x with Data Points")
+# Get solutions
+x_numerical, y_numerical = numerical_solution_from_so()
+x_z, z_values = z_transform_solution()
+analytical_values = analytical_solution(t_values)
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(t_values, analytical_values, label='theory', color='black', linestyle='-')  # Black line for theory
+plt.scatter(x_numerical, y_numerical, label='sim1', color='red')  # Red dots for sim1
+plt.plot(x_z, z_values, label='sim2', color='blue', linestyle='--')  # Blue dashed line for sim2
+plt.xlabel('Time (t)')
+plt.ylabel('P')
 plt.legend()
 plt.grid()
-
-# Save the figure as a file (e.g., PNG, JPG, or PDF)
-plt.savefig("plot.png", dpi=300, bbox_inches="tight")  # Save with high resolution
-
-# Show the plot
+plt.savefig('plot.png')  # Save the figure as PNG
 plt.show()
 
