@@ -116,12 +116,13 @@ y\brak{x+h}=y\brak{x} - h \times \frac{\tan{x}}{\tan{y}}
 Let \brak{t_0,P_0} be points on the curve,
 \begin{align}
 x_1=x_0+h \\
-y_1=y_0 - h \times \frac{\tan{x}}{\tan{y}}
+y_1=y_0 - h \times \frac{\tan{x_n}}{\tan{y_n}}
 \end{align}
 On  generalising the above equations,
 \begin{align}
 x_{n+1}=x_{n}+h \\
-y_{n+1}=y_{n} - h \times \frac{\tan{x}}{\tan{y}}
+y_{n+1}=y_{n} - h \times \frac{\tan{x_n}}{\tan{y
+-n}}
 \end{align}
 Where h is a very small division (example 0.1),We need iterate this algorithm by taking $y_0=\frac{\pi}{4}$ and $x=0$.
 If we plot all the points $(x,y)$, we get the function y varying with x, i.e y vs x graph. \\
