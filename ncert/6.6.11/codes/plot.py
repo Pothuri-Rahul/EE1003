@@ -15,7 +15,7 @@ code.fun.argtypes = [
 
 # Parameters
 b = 0.0  # Initial value of b
-alpha = 0.1  # Learning rate
+alpha = 0.01  # Learning rate
 max_iter = 100  # Maximum number of iterations
 
 # Allocate arrays for b_values and A_values
@@ -40,13 +40,12 @@ plt.figure(figsize=(8, 6))
 plt.plot(b_values_np, A_values_np, marker='o', color='orange', label='Area vs. b')
 plt.xlabel('b (width)')
 plt.ylabel('Area (A)')
-plt.title('Area vs. Width (b) of the Window')
 plt.grid()
 plt.legend()
 
 # Save the plot as a PNG file
 plt.tight_layout()
-plt.savefig('area_vs_b_plot.png')
+plt.savefig('plot.png')
 
 # Optionally, display the plot
 # plt.show()

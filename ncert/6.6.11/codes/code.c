@@ -6,7 +6,7 @@ double dA(double b){
 
 void fun(double b,double alpha,double *b_values,double A,double *A_values){
   b = 0.0;
-  alpha = 0.1;
+  alpha = 0.01;
   A = 0;
   for(int i=0;i<100;i++){
     b_values[i] = b;
