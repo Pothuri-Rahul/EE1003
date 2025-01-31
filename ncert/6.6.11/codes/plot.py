@@ -49,4 +49,3 @@ plt.savefig('plot.png')
 
 # Optionally, display the plot
 # plt.show()
-

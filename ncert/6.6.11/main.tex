@@ -131,12 +131,13 @@ A = \frac{20b - b^2 \brak{\pi +8}}{2}
 \end{align} 
 Gradient of the Area at any point b is given by 
 \begin{align}
-\frac{dA}{dt} = 10 - b \brak{\pi +8}
+\frac{dA}{db} = 10 - b \brak{\pi +8}
 \end{align}
 Let $\alpha$ be a learning rate,a small positive value that controls how much we move in the direction of the gradient. \\
 Let us set the initial value of b, say $b_0$, to 0 and Area, say $A_0$ to 0. and update the b as ,
 \begin{align}
-b_{n+1} = b_n +\alpha \times \frac{dA}{db}
+b_{n+1} = b_n +\alpha \times \frac{dA_n}{db_n} \\
+b_{n+1} = b_n +\alpha \times (10 - b_n \brak{\pi +8})
 \end{align}
 And calculate the value of A(Area) for the respective value of b using \eqref{4} \\
 Now lets plot the values of A and b in the graph and we find the maximum A at a certain b in the plot.
